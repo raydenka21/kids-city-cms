@@ -5,7 +5,7 @@ import 'package:kids_city_cms/app/helper/setting_app.dart';
 
 
 class VoucherProvider extends GetConnect {
-  final String _baseUrl = "${SettingApp.urlApi}voucher";
+  final String _baseUrl = "${SettingApp.urlApi}vouchers";
   // @override
   // void onInit() {
   //   httpClient.defaultDecoder = (map) {
@@ -18,8 +18,6 @@ class VoucherProvider extends GetConnect {
 
   Future<List<Voucher>> getallVoucher(int page, int limit) async {
     final response = await get("${_baseUrl}?page=$page&limit=$limit");
-    print(_baseUrl);
-    print(response);
     return Voucher.fromJsonList(response.body["data"]);
   }
 }

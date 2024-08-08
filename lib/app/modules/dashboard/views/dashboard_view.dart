@@ -55,8 +55,8 @@ class _DashboardViewState extends State<DashboardView> {
   Widget getBody() {
     List<Widget> pages = [
       VoucherView(title: 'Infinite Pagination'),
-      RedeemView(),
       NotificationView(),
+      RedeemView(),
       ProfileView(),
       HomeView(),
     ];

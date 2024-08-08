@@ -22,6 +22,10 @@ dependencies:
   cached_network_image: ^3.3.1
   rounded_loading_button_plus: ^3.0.1
   quickalert: ^1.1.0
+  pulp_flash: ^0.0.6
+  flash: ^3.1.1
+  flashtoast: ^0.0.11
+  rflutter_alert: ^2.0.7
 
 dev_dependencies: 
   flutter_lints: 4.0.0

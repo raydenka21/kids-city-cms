@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:kids_city_cms/app/services/redeem_service/redeem_service.dart';
-import 'package:kids_city_cms/app/routes/app_pages.dart';
-import 'package:kids_city_cms/app/widgets/dialog/show_info_dialog.dart';
+
 
 
 
@@ -27,16 +26,15 @@ class RedeemController extends GetxController {
 
   String? voucher;
 
-  doRedeem(voucher) async {
+  RxBool statusRedeem = true.obs;
+
+  doRedeem(voucherCode) async {
     bool redeemSuccess = await RedeemService().redeemVoucher(
-        voucher: voucher
+        voucher: voucherCode
     );
     if(!redeemSuccess){
-      print('aaa');
-      showInfoDialog("Email Or Passsword Wrong");
-      return;
+       statusRedeem.value = false;
     }
-    Get.toNamed(Routes.VOUCHER);
-
+    statusRedeem.value = false;
   }
 }

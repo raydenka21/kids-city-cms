@@ -1,3 +1,3 @@
 class SettingApp {
-  static var urlApi = "https://c699-202-80-219-143.ngrok-free.app/";
+  static var urlApi = "https://586a-103-49-223-178.ngrok-free.app/";
 }

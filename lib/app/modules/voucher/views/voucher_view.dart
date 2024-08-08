@@ -3,13 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controllers/voucher_controller.dart';
-
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class VoucherView extends StatelessWidget {
-  const VoucherView({super.key, required this.title});
+  const VoucherView({super.key, required this.title, this.message});
+
   final String title;
+  final String? message;
+
   @override
   Widget build(BuildContext context) {
+    print(message);
     final ScrollController scrollController = ScrollController();
     final VoucherController state = Get.put(VoucherController());
     state.getAllVoucher();
@@ -29,7 +33,11 @@ class VoucherView extends StatelessWidget {
 
     scrollController.addListener(onScroll);
 
+
+
+
     return Scaffold(
+
       body: RefreshIndicator(
         onRefresh: onRefresh,
         child: Obx(() => ListView.builder(
@@ -42,10 +50,10 @@ class VoucherView extends StatelessWidget {
                 return ListTile(
                   leading: CircleAvatar(
                     backgroundImage:
-                    NetworkImage(state.voucher[index].avatar ?? ''),
+                        NetworkImage(state.voucher[index].avatar ?? ''),
                   ),
-                  title: Text(state.voucher[index].number_voucher.toString() ?? ''),
-                  subtitle: Text(state.voucher[index].redeem_by ?? ''),
+                  title: Text(state.voucher[index].code.toString() ?? ''),
+                  subtitle: Text(state.voucher[index].status ?? ''),
                 );
               } else {
                 return const Padding(
@@ -62,5 +70,19 @@ class VoucherView extends StatelessWidget {
     );
   }
 
+  _getWidgetFloating(message,BuildContext context) {
+    if (message!=null) {
+      return Alert(
+        context: context,
+        title: "RFLUTTER ALERT",
+        desc: "Flutter is more awesome with RFlutter Alert.",
+      ).show();
+    } else {
+      return Alert(
+        context: context,
+        title: "RFLUTTER ALERT",
+        desc: "Flutter is more awesome with RFlutter Alert.",
+      ).show();
+    }
+  }
 }
-

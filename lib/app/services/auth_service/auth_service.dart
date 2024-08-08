@@ -28,9 +28,10 @@ class AuthService{
         "email": email,
         "password": password,
       };
+      print("${SettingApp.urlApi}users/auth");
 
       var response = await Dio().post(
-          "${SettingApp.urlApi}auth/",
+          "${SettingApp.urlApi}users/auth",
           data: json
       );
 

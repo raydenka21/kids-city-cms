@@ -14,15 +14,17 @@ class RedeemService{
     try{
       print(voucher);
       var json =  {
-        "voucher": voucher,
+        "code": voucher,
       };
 
       var response = await Dio().post(
-        "${SettingApp.urlApi}redeem/",
+        "${SettingApp.urlApi}vouchers/redeem",
         data: json,
       );
 
+
       Map obj = response.data;
+      print(obj);
       String? status = obj["status"];
       if(status!='success'){
         return false;

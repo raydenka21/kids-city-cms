@@ -1,9 +1,8 @@
-import 'dart:ffi';
-
 import 'package:get/get.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:kids_city_cms/app/services/auth_service/auth_service.dart';
 import 'package:kids_city_cms/app/helper/session/session_app.dart';
+import 'package:kids_city_cms/app/routes/app_pages.dart';
 
 
 
@@ -27,6 +26,8 @@ class HomeController extends GetxController {
         email: email!,
         password: password!);
 
+
+
     if(!loginSuccess){
       loadingSuccess = false;
       print(loadingSuccess);
@@ -37,7 +38,7 @@ class HomeController extends GetxController {
       loadingSuccess = true;
 
       Map<String, String> data = await SessionApp().getSession();
-      print(data);
+      Get.toNamed(Routes.DASHBOARD);
 
     }
 
